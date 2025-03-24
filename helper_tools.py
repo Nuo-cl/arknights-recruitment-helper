@@ -16,11 +16,16 @@ def calculate_tag_combination(tag_combination, data, min_rarity):
 
     operators = data[frozenset(tag_combination)]
     if min_rarity == 4:
-        for operator in operators:
+        ids = []
+        for id, operator in enumerate(operators):
             if operator[1] < 4:
                 return []
-            elif operator[1] == 5:
-                operators.remove(operator)
+            elif operator[1] == 4:
+                ids.append(id)
+        if len(ids) == 0:
+            return []
+        # 选取4星干员
+        operators = [operators[i] for i in ids]
     elif min_rarity == 5:
         for operator in operators:
             if operator[1] < 5:

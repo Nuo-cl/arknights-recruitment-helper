@@ -11,7 +11,6 @@ import time
 from helper_tools import calculate_selection
 
 DATA_PATH = './data/operators.json'
-IMG_PATH = './img/image.png'
 
 if __name__ == '__main__':
     # 记录程序开始时间
@@ -23,7 +22,7 @@ if __name__ == '__main__':
 
     # 识别图片中的文字
     start_time = time.time()
-    result = reader.readtext(IMG_PATH)
+    result = reader.readtext('./img/1.png')
     end_time = time.time()
     print(f"OCR推理时间: {end_time - start_time:.2f}秒")
 
